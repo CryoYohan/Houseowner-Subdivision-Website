@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Subvi</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="JWTDecoder" Version="0.9.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.10" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Homeowners\" />
+    <Folder Include="Views\Staff\" />
+  </ItemGroup>
+
+  <ItemGroup>
+  <UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
+  <UpToDateCheckBuilt Include="tailwind.config.js" Set="Css" />
+  </ItemGroup>
+
+  <Target Name="Tailwind" BeforeTargets="Build;Run">
+    <Exec Command="npm run build:css" />
+  </Target>
+
+
+</Project>
